@@ -24,9 +24,15 @@ MODEL_PATH = "fake_engagement_model.pkl"
 if not os.path.exists(MODEL_PATH):
     st.write("Downloading model... please wait ⏳")
     
-    url = "https://drive.google.com/file/d/YOUR_FILE_ID/view"
+    url = "https://drive.google.com/uc?export=download&id=1xMg8Og9yghzXJI_QJhvzLut8eXOyep0N"
     
-    gdown.download(url, MODEL_PATH, quiet=False, fuzzy=True)
+    gdown.download(url, MODEL_PATH, quiet=False)
+
+if os.path.exists(MODEL_PATH):
+    model = joblib.load(MODEL_PATH)
+else:
+    st.error("Model download failed")
+    st.stop()
 
 # -----------------------------
 # LOAD MODEL AFTER DOWNLOAD
