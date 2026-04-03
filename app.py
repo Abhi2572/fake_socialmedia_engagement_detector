@@ -12,8 +12,15 @@ API_KEY = st.secrets["API_KEY"]
 youtube = build("youtube", "v3", developerKey=API_KEY)
 
 # Load model
-model = joblib.load("fake_engagement_model.pkl")
+import os
+import gdown
 
+MODEL_PATH = "fake_engagement_model.pkl"
+
+if not os.path.exists(MODEL_PATH):
+    url = "https://drive.google.com/file/d/1ABCxyz12345/view"
+    gdown.download(url, MODEL_PATH, quiet=False, fuzzy=True)
+    
 st.set_page_config(page_title="Fake Engagement Detection", layout="wide")
 
 st.title("🔍 Fake Engagement Detection")
