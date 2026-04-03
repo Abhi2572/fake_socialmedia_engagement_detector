@@ -27,10 +27,10 @@ if not os.path.exists(MODEL_PATH):
     url = "https://drive.google.com/uc?export=download&id=1xMg8Og9yghzXJI_QJhvzLut8eXOyep0N"
     
     try:
-            gdown.download(url, MODEL_PATH, quiet=False)
-        except Exception as e:
-            st.error("❌ Model download failed. File may be too large or not public.")
-            st.stop()
+        gdown.download(url, MODEL_PATH, quiet=False)
+    except Exception as e:
+        st.error("❌ Model download failed. File may be too large or not public.")
+        st.stop()
 
 if os.path.exists(MODEL_PATH):
     st.success("✅ Model loaded successfully!")
