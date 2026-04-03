@@ -5,3 +5,4 @@ scikit-learn
 plotly
 google-api-python-client
 joblib
+gdown
